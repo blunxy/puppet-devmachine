@@ -1,11 +1,12 @@
 class emacs {
   package { "my-emacs-24.4":
     ensure => installed,
-    require => File['/etc/apt/apt.conf.d/99auth'],
+    require => File['turn_auth_off'],
     before => File['turn_auth_back_on'],
   }
 
-  file { "/etc/apt/apt.conf.d/99auth":
+  file { "turn_auth_off":
+    path => "/etc/apt/apt.conf.d/99auth":
     owner     => root,
     group     => root,
     content   => "APT::Get::AllowUnauthenticated yes;",
