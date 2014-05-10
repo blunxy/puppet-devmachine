@@ -6,7 +6,7 @@ class emacs {
   }
 
   file { "turn_auth_off":
-    path => "/etc/apt/apt.conf.d/99auth":
+    path => "/etc/apt/apt.conf.d/99auth",
     owner     => root,
     group     => root,
     content   => "APT::Get::AllowUnauthenticated yes;",
