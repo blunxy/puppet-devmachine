@@ -7,7 +7,7 @@ user = ENV['user'] || "vagrant"
 private_key = ENV['key'] || "/home/jpratt/.vagrant.d/insecure_private_key"
 
 SSH = "ssh -i #{private_key} -p #{port} -o StrictHostKeyChecking=no -l #{user} #{client}"
-REPO = 'https://github.com/blunxy/puppety.git'
+REPO = 'https://github.com/blunxy/puppet-devmachine.git'
 
 task :default do
   Rake::Task["set_host"].execute
