@@ -1,9 +1,9 @@
 class emacs {
-  file { '/tmp/emacs_243.deb':
-    source => 'puppet:///modules/emacs/myemacs_243.deb',
+  exec { "/bin/echo 'deb https://s3.amazonaws.com/mydebs stable main' >> /etc/apt/sources.list":
+    user => root,
+    before => Package['my-emacs-24.4'],
   }
-  package { "myemacs_243":
-    source => '/tmp/emacs_243.deb',
-    before => File['/tmp/emacs_243.deb'],
+  package { "my-emacs-24.4":
+    require => Exec['apt-get update'],
   }
 }
