@@ -53,6 +53,11 @@ task :set_up_papply do
   ssh_command "sudo puppet apply --modulepath=/etc/puppet/modules -e \"include convenient_scripts\" -v"
 end
 
+desc "Add my custom S3 deb repo to sources"
+task :set_up_deb_repo
+  ssh_command "sudo /bin/echo \"deb https://s3.amazonaws.com/mydebs stable main\" >> /etc/apt/sources.list"
+  ssh_command "sudo apt-get update"
+end
 
 def ssh_command(cmd)
   sh "#{SSH} '#{cmd}'"
