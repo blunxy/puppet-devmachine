@@ -13,6 +13,6 @@ class emacs {
   }
 
   exec { "turn_auth_back_on":
-    command => "sudo rm -f /etc/apt/apt.conf.d/99auth",
+    command => "sudo /bin/rm -f /etc/apt/apt.conf.d/99auth",
   }
 }
