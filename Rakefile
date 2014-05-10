@@ -15,6 +15,13 @@ task :default do
   Rake::Task["install_git"].execute
   Rake::Task["pull_puppet_structure"].execute
   Rake::Task["set_up_papply"].execute
+  Rake::Task["set_up_deb_repo"].execute
+  Rake::Task["run_papply"].execute
+end
+
+desc "Run papply"
+task :run_papply do
+  ssh_command "papply"
 end
 
 desc "Set hostname on ENV['CLIENT'] to ENV['HOSTNAME']"

@@ -1,3 +1,4 @@
 node 'app' {
-    include convenient_scripts
+  include convenient_scripts
+  include emacs
 }

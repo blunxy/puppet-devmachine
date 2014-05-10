@@ -1,2 +1,2 @@
 #!/bin/bash
-sudo puppet apply /etc/puppet/manifests $*
+sudo puppet apply --modulepath=/etc/puppet/modules /etc/puppet/manifests $*
