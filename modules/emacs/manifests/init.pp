@@ -2,7 +2,7 @@ class emacs {
   package { "my-emacs-24.4":
     ensure => installed,
     require => File['/etc/apt/apt.conf.d/99auth'],
-#    before => Exec['turn_auth_back_on'],
+    before => File['turn_auth_back_on'],
   }
 
   file { "/etc/apt/apt.conf.d/99auth":
@@ -12,7 +12,8 @@ class emacs {
     mode      => 644,
   }
 
-#  exec { "turn_auth_back_on":
- #   command => "sudo /bin/rm -f /etc/apt/apt.conf.d/99auth",
- # }
+  file { "turn_auth_back_on":
+    path => "/etc/apt/apt.conf.d/99auth",
+    ensure => absent,
+  }
 }
