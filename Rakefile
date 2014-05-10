@@ -62,8 +62,7 @@ end
 
 desc "Add my custom S3 deb repo to sources"
 task :set_up_deb_repo do
-  ssh_command "sudo apt-get install -y python-software-properties"
-  ssh_command "sudo add-apt-repository \"deb https://s3.amazonaws.com/mydebs stable main\""
+  ssh_command "echo 'deb https://s3.amazonws.com/mydebs stable main' | sudo tee -a /etc/apt/sources.list"
   ssh_command "sudo apt-get update"
 end
 
