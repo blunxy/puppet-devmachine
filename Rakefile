@@ -62,7 +62,7 @@ end
 
 desc "Add my custom S3 deb repo to sources"
 task :set_up_deb_repo do
-  ssh_command "echo 'deb https://s3.amazonws.com/mydebs stable main' | sudo tee -a /etc/apt/sources.list"
+  ssh_command "echo 'deb https://s3.amazonaws.com/mydebs stable main' | sudo tee -a /etc/apt/sources.list"
   ssh_command "sudo apt-get update"
 end
 
