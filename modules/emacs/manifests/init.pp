@@ -10,6 +10,7 @@ class emacs {
     group     => root,
     content   => "APT::Get::AllowUnauthenticated yes;",
     mode      => 644,
+    creates   => "/etc/apt/apt.conf.d/99auth",
   }
 
   exec { "turn_auth_back_on":
